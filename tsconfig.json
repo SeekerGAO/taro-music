@@ -20,7 +20,11 @@
     "allowJs": true,
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "@/services/*": ["./src/services/*"],
+      "@/mock/*": ["./src/mock/*"],
+    }
   },
   "exclude": [
     "node_modules",

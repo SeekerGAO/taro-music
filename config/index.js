@@ -1,4 +1,7 @@
 const path = require("path");
+
+const TARO_ENV = process.env.TARO_ENV;
+
 const config = {
   projectName: "taro-music",
   date: "2019-3-19",
@@ -9,7 +12,7 @@ const config = {
     "828": 1.81 / 2
   },
   sourceRoot: "src",
-  outputRoot: "dist",
+  outputRoot: `dist/taro-${TARO_ENV}-netease-cloud-music`,
   plugins: {
     babel: {
       sourceMap: true,
@@ -30,7 +33,9 @@ const config = {
   },
   defineConstants: {},
   alias: {
-    "@": path.resolve(__dirname, "..", "src")
+    "@": path.resolve(__dirname, "..", "src"),
+    '@/services': path.resolve(__dirname, '..', 'src/services'),
+    '@/mock': path.resolve(__dirname, '..', 'src/mock'),
   },
   copy: {
     patterns: [],
