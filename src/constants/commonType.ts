@@ -31,7 +31,7 @@ export type currentSongInfoType = {
   st: number // 是否喜欢
 }
 
-export type playListDetailInfoType = {
+export type  playListDetailInfoType = {
   coverImgUrl: string,
   playCount: number,
   name: string,

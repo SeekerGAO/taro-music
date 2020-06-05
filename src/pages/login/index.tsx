@@ -3,6 +3,9 @@ import { View, Input } from "@tarojs/components";
 import { AtIcon, AtButton, AtToast } from "taro-ui";
 import CTitle from "../../components/CTitle";
 import api from "../../services/api";
+
+import userInfo from '@/mock/user';
+
 import "./index.scss";
 
 type InputType = "phone" | "password";
@@ -37,6 +40,11 @@ const Page: FC = () => {
   }
 
   function login() {
+
+    saveUserInfo();
+
+    return;
+
     if (!phone) {
       this.setState({
         showTip: true,
@@ -69,6 +77,14 @@ const Page: FC = () => {
     } else {
       setPassword(value);
     }
+  }
+
+  function saveUserInfo() {
+    Taro.setStorageSync('userInfo', userInfo);
+    Taro.setStorageSync('userId', userInfo.account.id);
+    Taro.navigateTo({
+      url: '/pages/index/index'
+    })
   }
 
   return (
